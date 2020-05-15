@@ -1,2 +1,2 @@
-# jQuery_introduction
-jQuery introduction (HTML/CSS/jQuery)
+# jQuery introduction
+Presentation made with HTML/CSS/jQuery

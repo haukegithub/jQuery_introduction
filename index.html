@@ -1,0 +1,394 @@
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Hauke Hörhold">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>jQuery Einführung</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1></h1>
+        </header>
+
+        <section id="slide">
+            <div id="left"></div>
+            <div id="right"></div>
+        </section>
+
+        <footer>
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
+            <div id="page-nr"></div>
+        </footer>
+
+<!-- Data ################################################################## -->
+<section id="data" style="display: none; visibility: hidden;">
+
+<!-- SLIDE 16 .............................................................. -->
+<div class="slide"><div class="title">
+</div><div class="left">
+        <h1>&lt;/script&gt;<br><small style="color: #3c3c3c;">(Ende)</small></h1>
+</div><div class="right">
+        <div class="frontpage"></div>
+</div></div>
+
+<!-- SLIDE 15 .............................................................. -->
+<div class="slide"><div class="title">
+        Mehr Infos
+</div><div class="left">
+        <ul>
+            <li>Download:<br><small><i class="link"><a href="https://jquery.com/download" target="_blank">https://jquery.com/download</a></i></small></li>
+            <li><i>API</i>-Dokumentation:<br><small><i class="link"><a href="https://api.jquery.com" target="_blank">https://api.jquery.com</a></i></small></li>
+            <li>Source <i>(GitHub)</i>:<br><small><i class="link"><a href="https://github.com/jquery/jquery" target="_blank">https://github.com/jquery/jquery</a></i></small></li>
+        </ul>
+</div><div class="right">
+        <div class="no-split"></div>
+</div></div>
+
+<!-- SLIDE 14 .............................................................. -->
+<div class="slide"><div class="title">
+        Warum <i>jQuery</i> "einfach" ist
+</div><div class="left">
+        <ul>
+            <li>Klasse(n) hinzufügen:</li>
+            <ul>
+                <li>Mit <i><b>JavaScript</b>:</i><br>
+                    <span class="cmd" cmd=""><span class="atr">var</span> c = <span class="str">document</span><br>  .<span class="fun">getElementsByClassName</span>(<span class="str">"cl"</span>);
+
+<span class="atr">var</span> i;
+<span class="fun">for</span> (i = 0; i < c.length; i++) {
+  c[i].<span class="fun">className</span> =<br>    c[i].<span class="fun">className</span> + <span class="str">" selected"</span>;
+}</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="text">
+            <ul>
+                <li style="list-style-type: none;">&nbsp;</li>
+                <ul>
+                    <li>Mit <i><b>jQuery</b>:</i><br>
+                        <span class="cmd" cmd="">$(<span class="str">".cl"</span>).<span class="fun">addClass</span>(<span class="str">"selected"</span>);</span>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+</div></div>
+
+<!-- SLIDE 13 .............................................................. -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li>Event handler, z.B.:</li>
+            <ul>
+                <li>Mausklick abfangen: <span class="cmd" cmd="">$(<span class="str">"button"</span>).<span class='fun'>click</span>(<span class="fun">function</span>() {<br>  <span class='com'>// Zugriff mit $(this)</span><br>});</span>
+                </li>
+                <li>Tasten abfangen: <span class="cmd" cmd="">$(<span class="str">"body"</span>).<span class='fun'>keydown</span>(<span class="fun">function</span>(<span class='str'>e</span>) {<br>  <span class='com'>// e incl. pressed key etc.</span><br>}).<span class='fun'>keyup</span>(<span class="fun">function</span>() {<br>  <span class="com">// On key release</span><br>});</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 12 .............................................................. -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li>Elemente entfernen, z.B.:</li>
+            <ul>
+                <li>Auswahl entfernen: <span class="cmd" cmd="replace|.sub.sec|.markme|    <span class='markme'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <span class='ex-div fourth'>&amp;lt;/<span class='tag'>div</span>&amp;gt;</span>">$(<span class="str">".sub"</span>).<span class='fun'>last</span>().<span class="fun">remove</span>();</span>
+                </li>
+                <li>Auswahl ersetzen: <span class="cmd" cmd="replace|.sub.fir|.markme2|    <span class='markme2'>&amp;lt;<span class='tag'>h2</span>&amp;gt;Titel&amp;lt;/<span class='tag'>h2</span>&amp;gt;</span>">$(<span class="str">".sub"</span>)<br>.<span class="fun">replaceWith</span>(<span class='str'>"&lt;h2&gt;Titel&lt;/h2&gt;"</span>);</span>
+                </li>
+                <li>Auswahl ausblenden: <span class="cmd" cmd="replace|.sub.fir|.markme2|    <span class='markme2'>&amp;lt;<span class='tag'>h2</span> <span class='atr'>style=<span class='str'>&quot;display: none;&quot;</span></span>&amp;gt;Titel&amp;lt;/<span class='tag'>h2</span>&amp;gt;</span>">$(<span class="str">"h2"</span>).<span class="fun">hide</span>();</span>
+                </li>
+                <li>Auswahl einblenden: <span class="cmd" cmd="replace|.sub.fir|.markme2|    <span class='markme2'>&amp;lt;<span class='tag'>h2</span>&amp;gt;Titel&amp;lt;/<span class='tag'>h2</span>&amp;gt;</span>">$(<span class="str">"h2"</span>).<span class="fun">show</span>();</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 11 .............................................................. -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li>Elemente hinzufügen, z.B.:</li>
+            <ul>
+                <li>In Auswahl als letztes hinzufügen: <span class="cmd" cmd="replace|.sub.sec|.markme|    <span class='ex-p ex-sub last'>&amp;lt;<span class='tag'>p</span> <span class='atr'>class=<span class='str'>&quot;sub&quot;</span></span>&amp;gt;</span>Bar<span class='ex-p ex-sub last'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span><br>    <span class='markme'>&lt;<span class='tag'>b</span>&amp;gt;Huhu&amp;lt;/<span class='tag'>b</span>&amp;gt;</span>
+  <span class='ex-div fourth'>&amp;lt;/<span class='tag'>div</span>&amp;gt;</span>">$(<span class="str">"#cont div"</span>)<br>     .<span class="fun">append</span>(<span class="str">"&lt;b&gt;Huhu&lt;/b&gt;"</span>);</span>
+                </li>
+                <li>Nach Auswahl hinzufügen: <span class="cmd" cmd="replace|.sub.sec|.markme|    <span class='ex-p ex-sub last'>&amp;lt;<span class='tag'>p</span> <span class='atr'>class=<span class='str'>&quot;sub&quot;</span></span>&amp;gt;</span>Bar<span class='ex-p ex-sub last'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span><br>    <span>&lt;<span class='tag'>b</span>&amp;gt;Huhu&amp;lt;/<span class='tag'>b</span>&amp;gt;</span>
+  <span class='ex-div fourth'>&amp;lt;/<span class='tag'>div</span>&amp;gt;</span><br>  <span class='markme'>&amp;lt;<span class='tag'>b</span>&amp;gt;Huhu&amp;lt;/<span class='tag'>b</span>&amp;gt;</span>">$(<span class="str">"#cont div"</span>)<br>     .<span class="fun">after</span>(<span class="str">"&lt;b&gt;Huhu&lt;/b&gt;"</span>);</span>
+                </li>
+                <li>Wrappen der Auswahl: <span class="cmd" cmd="replace|.sub.sec|.markme|    <span class='ex-p ex-sub last'>&amp;lt;<span class='tag'>p</span> <span class='atr'>class=<span class='str'>&quot;sub&quot;</span></span>&amp;gt;</span>Bar<span class='ex-p ex-sub last'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span><br>    <span class='markme'>&lt;<span class='tag'>p</span>&amp;gt;&lt;<span class='tag'>b</span>&amp;gt;Huhu&amp;lt;/<span class='tag'>b</span>&amp;gt;&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>
+  <span class='ex-div fourth'>&amp;lt;/<span class='tag'>div</span>&amp;gt;</span><br>  <span>&amp;lt;<span class='tag'>b</span>&amp;gt;Huhu&amp;lt;/<span class='tag'>b</span>&amp;gt;</span>">$(<span class="str">"#cont div b"</span>).<span class="fun">wrap</span>(<span class="str">"&lt;p&gt;"</span>);</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 10 .............................................................. -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li><i>HTML</i>, Text, Attribute, z.B.:</li>
+            <ul>
+                <li>Inhalt mit <i>HTML</i> überschreiben: <span class="cmd" cmd="replace|#third|.ex-p.third|  <span class='ex-p third'>&amp;lt;<span class='tag'>p</span> <span class='atr'>id=</span><span class='str'>&quot;_3&quot;</span>&amp;gt;</span>&amp;lt;<span class='tag'>i</span>&amp;gt;!&amp;lt;/<span class='tag'>i</span>&amp;gt;<span class='ex-p third'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">"#_3"</span>).<span class="fun">html</span>(<span class="str">"&lt;i&gt;!&lt;/i&gt;"</span>);</span>
+                </li>
+                <li>Inhalt mit Text überschreiben: <span class="cmd" cmd="replace|#third|.ex-p.third|  <span class='ex-p third'>&amp;lt;<span class='tag'>p</span> <span class='atr'>id=</span><span class='str'>&quot;_3&quot;</span>&amp;gt;</span><span class='str'>&amp;amp;lt;</span>i<span class='str'>&amp;amp;gt;</span>!<span class='str'>&amp;amp;lt;</span>/i<span class='str'>&amp;amp;gt;</span><span class='ex-p third'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">"#_3"</span>).<span class="fun">text</span>(<span class="str">"&lt;i&gt;!&lt;/i&gt;"</span>);</span>
+                </li>
+                <li>Attribut setzen: <span class="cmd" cmd="replace|#second|.ex-p.second|  <span class='ex-p second'>&amp;lt;<span class='tag'>p</span> <span class='atr'>id=</span><span class='str'>&quot;_2&quot;</span> <span class='atr'>dies=</span><span class='str'>&quot;das&quot;</span>&amp;gt;</span>TEST2<span class='ex-p second'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">"#_2"</span>).<span class="fun">attr</span>(<span class="str">"dies"</span>, <span class="str">"das"</span>);</span></li>
+                <li>Attribut abfragen: <span class="cmd" cmd="replace|#second|.markme|  <span class='ex-p second'>&amp;lt;<span class='tag'>p</span> <span class='atr'>id=</span><span class='str'>&quot;_2&quot;</span> <span class='atr'>dies=</span><span class='str markme'>&quot;das&quot;</span>&amp;gt;</span>TEST2<span class='ex-p second'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">"#_2"</span>).<span class="fun">attr</span>(<span class="str">"dies"</span>);</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 9 ............................................................... -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li><i>CSS</i> und Klassen, z.B.:</li>
+            <ul>
+                <li>Style-Attribut: <span class="cmd" cmd="replace|h1|.ex-h1|<h1>  <span class='ex-h1'>&amp;lt;<span class='tag'>h1</span> <span class='atr'>style=</span><span class='str'>&quot;margin: 5px;&quot;</span>&amp;gt;</span>Titel<span class='ex-h1'>&amp;lt;/<span class='tag'>h1</span>&amp;gt;</span></h1>">$(<span class="str">"h1"</span>).<span class="fun">css</span>(<span class="str">"margin"</span>, <span class="str">"5px"</span>);</span>
+                </li>
+                <li>Klasse hinzufügen: <span class="cmd" cmd="replace|.sub:first|.ex-p.foo|    <span class='ex-p ex-sub foo'>&amp;lt;<span class='tag'>p</span> <span class='atr'>class=<span class='str'>&amp;quot;sub wow&amp;quot;</span></span>&amp;gt;</span>Foo<span class='ex-p ex-sub foo'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">"p.sub:first"</span>).<span class="fun">addClass</span>(<span class="str">"wow"</span>);</span>
+                </li>
+                <li>Klasse entfernen: <span class="cmd" cmd="replace|.sub:first|.ex-p.foo|    <span class='ex-p ex-sub foo'>&amp;lt;<span class='tag'>p</span> <span class='atr'>class=<span class='str'>&amp;quot;wow&amp;quot;</span></span>&amp;gt;</span>Foo<span class='ex-p ex-sub foo'>&amp;lt;/<span class='tag'>p</span>&amp;gt;</span>">$(<span class="str">".wow"</span>).<span class="fun">removeClass</span>(<span class="str">"sub"</span>);</span>
+                </li>
+                <li>Klasse abfragen: <span class="cmd" cmd=".ex-p.foo"><span class="fun">if</span> ($(<span class="str">"p"</span>).<span class="fun">hasClass</span>(<span class="str">"wow"</span>)) {};</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 8 ............................................................... -->
+<div class="slide"><div class="title">
+        Funktionen
+</div><div class="left">
+        <ul>
+            <li>Navigation, z.B.:</li>
+            <ul>
+                <li>Index: <span class="cmd" cmd=".second">$(<span class="str">"p:eq(1)"</span>);</span></li>
+                <li>Nächstes: <span class="cmd" cmd=".third">$(<span class="str">"p:eq(1)"</span>).<span class="fun">next</span>();</span></li>
+                <li>Voriges: <span class="cmd" cmd=".first">$(<span class="str">"p:eq(1)"</span>).<span class="fun">prev</span>();</span></li>
+                <li>Eltern: <span class="cmd" cmd=".ex-div.cont">$(<span class="str">"p:eq(1)"</span>).<span class="fun">parent</span>();</span></li>
+                <li>Kind(er): <span class="cmd" cmd=".ex-h1, .ex-p:not('.ex-sub'), .ex-div:not('.cont'), .ex-a">$(<span class="str">"p:eq(1)"</span>).<span class="fun">parent</span>()<br>            .<span class="fun">children</span>();</span></li>
+                <li>Alle danach: <span class="cmd" cmd=".third, .ex-div:not('.cont'), .ex-a">$(<span class="str">"p:eq(1)"</span>).<span class="fun">nextAll</span>();</span></li>
+                <li>Alle davor: <span class="cmd" cmd=".first, .ex-h1">$(<span class="str">"p:eq(1)"</span>).<span class="fun">prevAll</span>();</span></li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 7 ............................................................... -->
+<div class="slide"><div class="title">
+        Variablen und Funktionen
+</div><div class="left">
+        <ul>
+            <li>In <b>Variable</b> speichern:</li>
+            <ul>
+                <li><span class="cmd" cmd=".ex-div, .ex-h1"><span class="fun">let</span> list = $(<span class="str">"div, h1"</span>);</span></li>
+            </ul>
+            <li><b>Funktionen</b> anwenden:</li>
+            <ul>
+                <li>Finden von Elementen in Auswahl:<br>
+                    <span class="cmd" cmd=".ex-h1">list.<span class="fun">find</span>(<span class="str">"h1"</span>);</span>
+                </li>
+                <li>Über Auswahl iterieren:<br>
+                    <span class="cmd" cmd="">list.<span class="fun">each</span>(<span class="fun">function</span>() {<br>  <span class="fun">let</span> thisEl = $(<span class='str'>this</span>);<br>});</span>
+                </li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 6 ............................................................... -->
+<div class="slide"><div class="title">
+        Elemente selektieren
+</div><div class="left">
+        <ul>
+            <li>Weitere Möglichkeiten, z.B.:</li>
+            <ul>
+                <li>Mehrere Elemente: <span class="cmd" cmd=".ex-div, .ex-h1">$(<span class="str">"div, h1"</span>);</span></li>
+                <li>Erstes Element: <span class="cmd" cmd=".ex-p.first">$(<span class="str">"p:first"</span>);</span></li>
+                <li>Letztes Element: <span class="cmd" cmd=".ex-p.ex-sub.last">$(<span class="str">"p:last"</span>);</span></li>
+                <li>Ungerade (Index): <span class="cmd" cmd=".ex-p.foo, .ex-p.second">$(<span class="str">"p:odd"</span>);</span></li>
+                <li>Inhalt: <span class="cmd" cmd=".ex-p.first, .ex-p.second, .ex-p.third">$(<span class="str">"p:contains('TEST')"</span>);</span></li>
+                <li>Enthält: <span class="cmd" cmd=".ex-p.first">$(<span class="str">"p:has('span')"</span>);</span></li>
+                <li>Negierung: <span class="cmd" cmd=".ex-p:not('.second')">$(<span class="str">"p:not('#_2')"</span>);</span></li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 5 ............................................................... -->
+<div class="slide"><div class="title">
+        Elemente selektieren
+</div><div class="left">
+        <ul>
+            <li>Nach <i>CSS</i>-Regeln, z.B.:</li>
+            <ul>
+                <li>HTML-Element(e): <span class="cmd" cmd=".ex-div">$(<span class="str">"div"</span>);</span></li>
+                <li>Element mit ID:	<span class="cmd" cmd=".ex-p.first">$(<span class="str">"p#_1"</span>);</span></li>
+                <li>ID: <span class="cmd" cmd=".third">$(<span class="str">"#_3"</span>);</span></li>
+                <li>Klasse(n): <span class="cmd" cmd=".ex-sub">$(<span class="str">".sub"</span>);</span></li>
+                <li>Vorfahre / Nachfahre(n): <span class="cmd" cmd=".cont p .ex-p">$(<span class="str">"#cont&nbsp;p"</span>);</span></li>
+                <li>Eltern / Kind(er): <span class="cmd" cmd=".cont > p .ex-p">$(<span class="str">"#cont&nbsp;>&nbsp;p"</span>);</span></li>
+                <li>Attribut(e) beginn(t/en) mit: <span class="cmd" cmd=".ex-a[href^=https]">$(<span class="str">"a[href^=https]"</span>);</span></li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="code example"></div>
+</div></div>
+
+<!-- SLIDE 4 ............................................................... -->
+<div class="slide"><div class="title">
+        <i>jQuery</i> nutzen
+</div><div class="left">
+        <ul>
+            <li>Syntax:<br>
+                <pre>$(<i><span class="str">selector</span></i>).<i><span class="fun">action</span></i>();</pre>
+            </li>
+            <li>Verkettung:<br>
+                <pre>$(<i><span class="str">selector</span></i>).<i><span class="fun">action</span></i>()<br>           .<i><span class="fun">action</span></i>()<br>           .<i><span class="fun">action</span></i>();</pre>
+            </li>
+        </ul>
+</div><div class="right">
+        <div class="code"><div class="cont">
+            <p>&lt;<span class="tag">body</span>&gt;</p>
+            <p>  <span class="com">&lt;!-- Body content --&gt;</span></p>
+            <p>  &lt;<span class="tag">script</span>&gt;</p>
+            <p>    <span class="com">// Wichtig! Warten bis DOM geladen</span></p>
+            <p>    <span class="marked">$(<span class="str">document</span>).<span class="fun">ready</span>(<span class="fun">function</span>() {</span></span></p>
+            <p>      <span class="com">// jQuery code</span></p>
+            <p>    <span class="marked">});</span></p>
+            <p>  &lt;/<span class="tag">script</span>&gt;</p>
+            <p>&lt;/<span class="tag">body</span>&gt;</p>
+            <p>&nbsp;</p>
+            <p class="comment">Oder akgekürzt:<br>$(<span class="fun">function</span>() { <span class="com">// jQuery code</span> });</p>
+        </div></div>
+</div></div>
+
+<!-- SLIDE 3 ............................................................... -->
+<div class="slide"><div class="title">
+        Einbinden auf Website
+</div><div class="left">
+        <ul>
+            <li><i>jQuery</i> ist "nur" eine <i>.js</i>-Datei <small>(87,3 KB)</small>:<br>
+                <small><i class="link"><a href="https://code.jquery.com/jquery-3.5.1.min.js" target="_blank">https://code.jquery.com/<br>jquery-3.5.1.min.js</a></i></small></li>
+        </ul>
+</div><div class="right">
+        <div class="code"><div class="cont">
+            <p><span class="com">&lt;!-- Einbinden in HTML-Header --&gt;</span></p>
+            <p>&lt;<span class="tag">html</span> <span class="atr">lang=</span><span class="str">&quot;de&quot;</span>&gt;</p>
+            <p>  &lt;<span class="tag">head</span>&gt;</p>
+            <p>    &lt;<span class="tag">meta</span> <span class="atr">charset=</span><span class="str">&quot;utf-8&quot;</span>&gt;</p>
+            <p>    &lt;<span class="tag">title</span>&gt;jQuery Einführung&lt;/<span class="tag">title</span>&gt;</p>
+            <p>    &lt;<span class="tag">link</span> <span class="atr">rel=</span><span class="str">&quot;stylesheet&quot;</span> <span class="atr">href=</span><span class="str">&quot;s.css&quot;</span>&gt;</p>
+            <p>    <span class="marked">&lt;<span class="tag">script</span> <span class="atr">src=</span><span class="str">&quot;jquery.min.js&quot;</span>&gt;&lt;/<span class="tag">script</span>&gt;</span></p>
+            <p>  &lt;/<span class="tag">head</span>&gt;</p>
+            <p>  &lt;<span class="tag">body</span>&gt;</p>
+            <p>    <span class="com">&lt;!-- ... --&gt;</span></p>
+            <p>  &lt;/<span class="tag">body</span>&gt;</p>
+            <p>&lt;/<span class="tag">html</span>&gt;</p>
+        </div></div>
+</div></div>
+
+<!-- SLIDE 2 ............................................................... -->
+<div class="slide"><div class="title">
+        Web-weiter Einsatz
+</div><div class="left">
+        <ul>
+            <li>Vorhanden auf <b>73,8% aller Websites</b></li>
+            <li>Marktanteil <small>(<i>JS</i>-Bibliotheken)</small>: 97,5%</li>
+            <li>Da in vielen Projekten dabei:</li>
+            <ul>
+                <li><i>Bootstrap</i></li>
+                <li><i>WordPress</i></li>
+                <li><i>Confluence</i></li>
+                <li>...</li>
+            </ul>
+        </ul>
+        <img src="img/marketshare.png" class="floating-right">
+</div><div class="right">
+        <div class="no-split"></div>
+</div></div>
+
+<!-- SLIDE 1 ............................................................... -->
+<div class="slide"><div class="title">
+        Was ist <i>jQuery</i>
+</div><div class="left">
+        <ul>
+            <li><i>JavaScript (JS)</i> Bibliothek</li>
+            <ul>
+                <li><i>JS</i> → dynamische Websites
+                <img src="img/js-lib.png" style="margin-top:10%;"></li>
+            </ul>
+        </ul>
+</div><div class="right">
+        <div class="text">
+            <ul>
+                <li>Ziel:<br><i>JS</i>-Aufgaben <b>vereinfachen</b></li>
+                <ul>
+                    <li><i>DOM</i>-Manipulation & -Navigation</li>
+                    <li>Animation</li>
+                    <li>Interaktion mit Benutzer</li>
+                    <li>...</li>
+                </ul>
+            </ul>
+        </div>
+</div></div>
+
+<!-- SLIDE 0 ............................................................... -->
+<div class="slide"><div class="title">
+</div><div class="left">
+        <h1>Einführung in<br><img src="img/logo-jquery-xl.png" alt="jQuery"></h1>
+</div><div class="right">
+        <div class="frontpage"></div>
+</div></div>
+
+<!-- Example code .......................................................... -->
+<div id="example">
+    <div class="cont">
+        <span class="ex-div cont">&lt;<span class="tag">div</span> <span class="atr">id=<span class="str">"cont"</span></span>&gt;</span>
+        <h1>  <span class="ex-h1">&lt;<span class="tag">h1</span>&gt;</span>Titel<span class="ex-h1">&lt;/<span class="tag">h1</span>&gt;</span></h1>
+        <p id="first">  <span class="ex-p first">&lt;<span class="tag">p</span> <span class="atr">id=</span><span class="str">"_1"</span>&gt;</span><span class="ex-span">&lt;<span class="tag">span</span>&gt;</span>TEST1<span class="ex-span">&lt;/<span class="tag">span</span>&gt;</span><span class="ex-p first">&lt;/<span class="tag">p</span>&gt;</span></p>
+        <p id="second">  <span class="ex-p second">&lt;<span class="tag">p</span> <span class="atr">id=</span><span class="str">"_2"</span>&gt;</span>TEST2<span class="ex-p second">&lt;/<span class="tag">p</span>&gt;</span></p>
+        <p id="third">  <span class="ex-p third">&lt;<span class="tag">p</span> <span class="atr">id=</span><span class="str">"_3"</span>&gt;</span>TEST3<span class="ex-p third">&lt;/<span class="tag">p</span>&gt;</span></p>
+        <div>  <span class="ex-div">&lt;<span class="tag">div</span>&gt;</span>
+<p class="sub fir">    <span class="ex-p ex-sub foo">&lt;<span class="tag">p</span> <span class="atr">class=<span class="str">"sub"</span></span>&gt;</span>Foo<span class="ex-p ex-sub foo">&lt;/<span class="tag">p</span>&gt;</span></p><p class="sub sec">    <span class="ex-p ex-sub last">&lt;<span class="tag">p</span> <span class="atr">class=<span class="str">"sub"</span></span>&gt;</span>Bar<span class="ex-p ex-sub last">&lt;/<span class="tag">p</span>&gt;</span>
+  <span class="ex-div fourth">&lt;/<span class="tag">div</span>&gt;</span></div>
+        <a href="https://jquery.com">  <span class="ex-a" href="https">&lt;<span class="tag">a</span> <span class="atr">href=</span><span class="str">"https://jquery.com"</span>&gt;</span>Web 1<span class="ex-a" href="https">&lt;/<span class="tag">a</span>&gt;</span></a>
+        <a href="http://jquery.com">  <span class="ex-a" href="http">&lt;<span class="tag">a</span> <span class="atr">href=</span><span class="str">"http://jquery.com"</span>&gt;</span>Web 2<span class="ex-a" href="http">&lt;/<span class="tag">a</span>&gt;</span></a>
+        <span class="ex-div cont">&lt;/<span class="tag">div</span>&gt;</span>
+    </div>
+</div>
+
+</section>
+<!-- End data ############################################################## -->
+
+<!-- Script -->
+        <script src="js/script.js"></script>
+    </body>
+</html>

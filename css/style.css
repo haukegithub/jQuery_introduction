@@ -1,0 +1,257 @@
+html, body {
+    margin: 0;
+}
+body {
+    font-size: 50px;
+    font-size: 3vw;
+    line-height: 4vw;
+    background: #fff;
+    font-family: Tahoma, Geneva, Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+
+/******************************************************************************************/
+
+header {
+    position: relative;
+    background: #0769ad url(../img/logo-jquery.png) no-repeat right 20px top 50%;
+    width: 100%;
+    height: 18%;
+    border-bottom: 5px solid #f70;
+    overflow: hidden;
+}
+header h1 {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+    margin: 0;
+    color: #fff;
+    font-size: 80px;
+    font-size: 5vw;
+    font-weight: normal;
+}
+
+/******************************************************************************************/
+
+.frontpage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	height: calc(100% - 7%);
+	width: 100%;
+	background: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.frontpage h1 {
+    text-align: center;
+    line-height: 180%;
+    color: #0769ad;
+    margin: -7% 0 0 0;
+}
+.frontpage img {
+    max-width: 90%;
+}
+
+/******************************************************************************************/
+
+section#slide {
+    height: 75%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+section#slide ul {
+    margin: 0;
+}
+section#slide ul > ul {
+  	font-size: 2vw;
+  	line-height: 2.9vw;
+}
+section#slide li {
+    margin-bottom: 15px;
+}
+section#slide .cmd {
+    background: #ddd;
+    padding: 2px 10px;
+    cursor: pointer;
+    font-family: "Lucida Console", Monaco, monospace;
+    display: inline-block;
+    white-space: pre;
+    vertical-align: middle;
+}
+section#slide .cmd:hover,
+section#slide .cmd.active {
+    background: yellow;
+}
+section#slide .cmd span {
+    color: #0769ad;
+}
+br + span.cmd {
+    margin-top: 2%;
+}
+section#slide pre {
+    background: #ddd;
+    padding: 10px;
+    font-family: "Lucida Console", Monaco, monospace;
+    margin: 0;
+    font-size: 2vw;
+    line-height: 2.9vw;
+    display: inline-block;
+}
+section#slide i.link,
+section#slide a,
+section#slide a:hover,
+section#slide a:active,
+section#slide a:focus {
+    color: #0769ad;
+    text-decoration: none;
+}
+section#slide img {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+section#slide img.floating-right {
+    position: absolute;
+    right: 5%;
+    bottom: 1%;
+    width: auto !important;
+    height: 97%;
+}
+section#slide #left {
+    width: 50%;
+    height: 100%;
+    float: left;
+    padding: 20px 20px 20px 3%;
+    overflow-y: auto;
+    position: relative;
+}
+section#slide #left ul li.faded {
+    opacity: 0.15;
+    cursor: pointer;
+}
+section#slide.full-width #left {
+    width: 100%;
+}
+section#slide.full-width #right {
+    display: none;
+    visibility: hidden;
+}
+section#slide #right {
+    width: 50%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+section#slide #right .text {
+    padding: 20px;
+    overflow: auto;
+}
+section#slide #right .code {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    overflow: auto;
+    background: #ddd;
+}
+section#slide #right .code,
+section#slide #right .code * {
+  font-family: "Lucida Console", Monaco, monospace;
+  margin: 0;
+  font-size: 1.9vw;
+  line-height: 2.8vw;
+  font-weight: normal;
+}
+section#slide #right .code h1,
+section#slide #right .code > div div,
+section#slide #right .code p,
+section#slide #right .code a {
+  white-space: pre;
+}
+section#slide #right .code a,
+section#slide #right .code a:hover,
+section#slide #right .code a:focus,
+section#slide #right .code a:active {
+    color: #000;
+    text-decoration: none;
+    pointer-events: none;
+}
+section#slide #right .code .marked {
+    background: yellow;
+}
+section#slide #right .code p.comment {
+    background: #fff;
+    padding-left: 1.5%;
+}
+section#slide span.tag,
+section#slide span.fun {
+    color: #bf3737;
+}
+section#slide span.atr {
+    color: #30800d;
+}
+section#slide span.str {
+    color: #0769ad;
+}
+section#slide span.com {
+    color: #7224a0;
+}
+
+/******************************************************************************************/
+
+footer {
+    color: #999;
+    height: 7%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-top: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+}
+footer #page-nr {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    font-size: 25px;
+    font-size: 1.5vw;
+    transform: translateY(-50%);
+}
+footer #page-nr small {
+    font-size: 0.8vw;
+}
+footer button,
+footer button:focus {
+    color: #999;
+    background: none;
+    border: none;
+    font-size: 35px;
+    font-size: 2vw;
+    cursor: pointer;
+    margin: 0 20px;
+}
+footer button#prev {
+    padding-left: 100px;
+}
+footer button#next {
+    padding-right: 100px;
+}
+footer button:active {
+    color: #000;
+}
+footer button:hover,
+footer button.click {
+    color: #0769ad;
+}
+footer button.not-clickable {
+    cursor: initial;
+    color: #eee;
+}
